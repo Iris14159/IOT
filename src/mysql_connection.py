@@ -6,7 +6,7 @@ try:
         port=3306,
         user='ren',
         password='iot159487',
-        db='juego'
+        db='classicmodels'
     )
     if connection.is_connected():
         print("Connected.")
@@ -16,6 +16,12 @@ try:
         cursor.execute("SELECT DATABASE()")
         row = cursor.fetchone()
         print("Data base: {}".format(row))
+
+        cursor.execute("SELECT * FROM employees")
+        row = cursor.fetchall()
+        for empl in row:
+            print(empl)
+
 except Exception as ex:
     print(Ex)
 finally:
